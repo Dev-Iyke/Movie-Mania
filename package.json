@@ -1,0 +1,21 @@
+{
+  "name": "movie-mania",
+  "version": "1.0.0",
+  "description": "Movie Mania app built with HTML, Vanilla JS, and Tailwind CSS",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "dev": "tailwindcss -i ./src/input.css -o ./build/css/style.css --watch",
+    "build-css": "tailwindcss -i ./src/input.css -o ./build/css/style.css --minify"
+  },
+  "keywords": [
+    "movies",
+    "tailwindcss",
+    "html",
+    "javascript"
+  ],
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {
+    "tailwindcss": "^3.4.13"
+  }
+}
