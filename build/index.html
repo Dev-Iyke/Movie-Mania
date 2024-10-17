@@ -18,19 +18,23 @@
     </header>
     <main class="container mx-auto py-8">
       <!-- Search section -->
-      <div id="search-cont" class="flex flex-col items-center space-y-4">
-        <h2 class="font-semibold text-2xl text-center">What do you want to watch?</h2>
-        <form class="bg-[#3A3F47] w-full sm:max-w-lg flex items-center justify-between mx-auto py-2 px-4 rounded-2xl">
+      <div id="search-cont" class="flex flex-col gap-4 items-center sm:flex-row justify-between sm:justify-evenly sm:gap-8 md:gap-16 lg:gap-20">
+        <div class="flex flex-col gap-2 w-[80%] sm:w-full">
+          <h2 class="font-semibold text-xl text-center">What do you want to watch?</h2>
           <input class="bg-[#3A3F47] w-full text-white placeholder-gray-400 border-none outline-none py-2 px-4 rounded-lg" type="text" name="Search" id="search" placeholder="Search movies...">
-          <button id="search-btn" type="submit" class="ml-2">
-            <i class="fa-brands fa-searchengin text-[#67686D]"></i>
-          </button>
-        </form>
+        </div>
+        <div class="flex flex-col gap-2 w-[80%] sm:w-full">
+          <h2 class="text-xl font-semibold text-center">Browse by Genre</h2>
+          <select id="genre-select" class="bg-[#3A3F47] border-none outline-none py-2 px-4 rounded-lg">
+            <option class="text-gray-400" value="">Select Genre</option>
+          </select>
+        </div>
+        
       </div>
 
       <!-- Trending movies section -->
       <div class="mt-8">
-        <h1 class="text-3xl font-bold mb-6 text-center">Trending Movies</h1>
+        <h1 id="heading" class="text-3xl font-bold mb-6 text-center"></h1>
         <div id="movies-cont" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
       </div>
 
