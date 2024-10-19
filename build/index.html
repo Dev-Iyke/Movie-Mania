@@ -3,39 +3,62 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Movie Mania - Home</title>
     <link rel="stylesheet" href="./css/style.css" />
-    <script src="https://kit.fontawesome.com/8842284731.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/8842284731.js"
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="./js/main.js"></script>
-
   </head>
-  <body class="bg-[#242A32] text-white px-4">
-    <header>
-      <div class="flex items-center">
-        <span class="font-[900] text-yellow-500 text-3xl">M</span>
-        <h1 class="logo font-semibold text-3xl text-white">ovie Mania</h1>
-      </div>
+  <body class="bg-[#242A32] text-white">
+    <header
+      class="w-full fixed flex justify-between items-center z-[3] scroll-mb-12 py-2 px-4 sm:px-8 md:px-12 lg:px-16"
+    >
+      <a href="./index.html">
+        <div class="flex items-center">
+          <span class="font-[900] text-yellow-500 text-3xl">M</span>
+          <h1 class="logo font-semibold text-3xl text-white">ovie Mania</h1>
+        </div>
+      </a>
+      <p title="watch list"><a class="text-yellow-500 text-3xl" href="./watchlist.html"><i class="fa-solid fa-bookmark"></i></a></p>
     </header>
-    <main class="container mx-auto py-8">
+    <main class="container mx-auto pb-8 pt-12 px-4">
       <!-- Search section -->
-      <div id="search-cont" class="flex flex-col gap-4 items-center sm:flex-row justify-between sm:justify-evenly sm:gap-8 md:gap-16 lg:gap-20">
+      <div
+        id="search-cont"
+        class="flex flex-col gap-4 items-center sm:flex-row justify-between sm:justify-evenly sm:gap-8 md:gap-16 lg:gap-20"
+      >
         <div class="flex flex-col gap-2 w-[80%] sm:w-full">
-          <h2 class="font-semibold text-xl text-center">What do you want to watch?</h2>
-          <input class="bg-[#3A3F47] w-full text-white placeholder-gray-400 border-none outline-none py-2 px-4 rounded-lg" type="text" name="Search" id="search" placeholder="Search movies...">
+          <h2 class="font-semibold text-xl text-center">
+            What do you want to watch?
+          </h2>
+          <input
+            class="bg-[#3A3F47] w-full text-white placeholder-gray-400 border-none outline-none py-2 px-4 rounded-lg"
+            type="text"
+            name="Search"
+            id="search"
+            placeholder="Search movies..."
+          />
         </div>
         <div class="flex flex-col gap-2 w-[80%] sm:w-full">
           <h2 class="text-xl font-semibold text-center">Browse by Genre</h2>
-          <select id="genre-select" class="bg-[#3A3F47] border-none outline-none py-2 px-4 rounded-lg">
+          <select
+            id="genre-select"
+            class="bg-[#3A3F47] border-none outline-none py-2 px-4 rounded-lg"
+          >
             <option class="text-gray-400" value="">Select Genre</option>
           </select>
         </div>
-        
       </div>
 
       <!-- Trending movies section -->
-      <div class="mt-8">
+      <div class="mt-8 z-[1]">
         <h1 id="heading" class="text-3xl font-bold mb-6 text-center"></h1>
-        <div id="movies-cont" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+        <div
+          id="movies-cont"
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+        ></div>
       </div>
 
       <!-- Watchlist Link -->

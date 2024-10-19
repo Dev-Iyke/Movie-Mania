@@ -175,9 +175,10 @@ function displayMovies(movies, moviesContainer) {
     return `
     <div class="bg-[#3A3F47] p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
       <a href="movie-details.html?id=${movie.id}">
-        <img class="w-full h-[300px] object-cover rounded-md mb-4" src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
+        <img class="w-full h-[350px] object-cover rounded-md mb-4" src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
         <h2 class="text-lg font-semibold mb-2">${movie.title}</h2>
         <p class="text-sm text-gray-400 line-clamp-3">${movie.overview}</p>
+        <h4 class="text-lg font-semibold mt-2">Rating: ${movie.vote_average}/10</h4>
       </a>
     </div>
     `;

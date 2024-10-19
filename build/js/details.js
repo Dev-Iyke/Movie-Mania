@@ -42,7 +42,7 @@ function displayMoviesDetails(movie) {
     position: absolute;
     bottom: -60px;
     left: 30px;
-    z-index: 10;
+    z-index: 2;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   `;
 
@@ -61,17 +61,24 @@ function displayMoviesDetails(movie) {
       <p class="text-sm"><strong>Rating:</strong> ${movie.vote_average}/10</p>
       <p class="text-sm"><strong>Release Date:</strong> ${new Date(movie.release_date).toLocaleDateString()}</p>
       <p class="text-sm"><strong>Genres:</strong> ${stringedGenre}</p>
-      <button class="bg-yellow-500 py-2 rounded-md cursor-pointer" id="addToWatchList">Add to watch list</button>
+      <button class="bg-yellow-500 py-2 rounded-md cursor-pointer transition-transform transform scale-105 duration-300" id="addToWatchList">Add to watch list <span class="text-xl font-bold">&plus;</span></button>
     </div>  
   `;
 
   document.getElementById('addToWatchList').addEventListener('click', () => {
     const watchList = JSON.parse(localStorage.getItem('watchList')) || [];
-    if (!watchList.includes(movie.id)) {
-      watchList.push(movie)
-    }
-    localStorage.setItem('watchList', JSON.stringify(watchList));
     console.log(watchList)
+    const movieExists = watchList.some(toWatch => toWatch.id === movie.id);
+    console.log(movieExists)
+    if (!movieExists) {
+      watchList.push(movie)
+      localStorage.setItem('watchList', JSON.stringify(watchList));
+      console.log(watchList)
+    }else {
+      console.log('Movie already exists in watch list')
+    }
     })
 }
 
+// localStorage.removeItem('watchList')
+//     console.log(watchList)

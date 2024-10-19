@@ -3,17 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Movie Mania - Trending</title>
+    <title>Movie Mania - Details</title>
+    <script
+      src="https://kit.fontawesome.com/8842284731.js"
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="./js/details.js"></script>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body class="bg-[#242A32] text-white">
+    <header
+      class="w-full fixed flex justify-between items-center z-[3] scroll-mb-12 py-2 px-4 sm:px-8 md:px-12 lg:px-16"
+    >
+      <a href="./index.html">
+        <div class="flex items-center">
+          <span class="font-[900] text-yellow-500 text-3xl">M</span>
+          <h1 class="logo font-semibold text-3xl text-white">ovie Mania</h1>
+        </div>
+      </a>
+      <p title="watch list"><a class="text-yellow-500 text-3xl" href="./watchlist.html"><i class="fa-solid fa-bookmark"></i></a></p>
+    </header>
+    <main class="container mx-auto pb-8 pt-8 px-4">
     <div class="container flex flex-col items-center justify-center p-6">
-      <h2 id="movie-title" class="text-2xl text-yellow-500 font-semibold p-4"></h2>
-      <div id="movie-details" class="rounded-lg flex flex-col items-center justify-center"></div>
+      <h2
+        id="movie-title"
+        class="text-2xl text-yellow-500 font-semibold p-4"
+      ></h2>
+      <div
+        id="movie-details"
+        class="rounded-lg flex flex-col items-center justify-center"
+      ></div>
       <div class="mt-8">
         <a href="./index.html" class="text-blue-500">Go Home</a>
       </div>
     </div>
+  </main>
   </body>
 </html>
