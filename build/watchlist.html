@@ -13,7 +13,7 @@
   </head>
   <body class="bg-[#242A32] text-white">
     <header
-      class="w-full fixed flex justify-between items-center z-[3] scroll-mb-12 py-2 px-4 sm:px-8 md:px-12 lg:px-16"
+      class="w-full fixed flex justify-between items-center z-[3] scroll-mb-12 py-6 px-4 sm:px-8 md:px-12 lg:px-16"
     >
       <a href="./index.html">
         <div class="flex items-center">
@@ -22,9 +22,10 @@
         </div>
       </a>
       <p title="watch list">
-        <a class="text-yellow-500 text-3xl" href="./watchlist.html"
-          ><i class="fa-solid fa-bookmark"></i
-        ></a>
+        <a class="text-yellow-500 text-3xl relative" href="./watchlist.html">
+          <i class="fa-solid fa-bookmark"></i>
+          <span id="watchlist-count" class="font-bold bg-white px-2 py-1 absolute -top-2 left-4 text-yellow-500 text-sm md:text-xl rounded-full"></span>
+        </a>
       </p>
     </header>
     <main class="container mx-auto pb-8 pt-8 px-4">
@@ -41,8 +42,8 @@
         class="flex items-center justify-center w-[80%] sm:w-[60%] md:w-[50%] lg:w-[40%] mx-auto my-8"
       >
         <button
-          class="bg-yellow-500 py-2 rounded-md cursor-pointer transition-transform transform scale-105 duration-300 w-full"
-          id="addToWatchList"
+          class="bg-red-500 py-2 rounded-md cursor-pointer transition-transform transform hover:scale-105 hover:bg-red-800 duration-300 w-full"
+          id="clearWatchList"
         >
           Clear WatchList <i class="fa-solid fa-trash"></i>
         </button>

@@ -13,7 +13,7 @@
   </head>
   <body class="bg-[#242A32] text-white">
     <header
-      class="w-full fixed flex justify-between items-center z-[3] scroll-mb-12 py-2 px-4 sm:px-8 md:px-12 lg:px-16"
+      class="w-full fixed flex justify-between items-center z-[3] scroll-mb-16 py-6 px-4 sm:px-8 md:px-12 lg:px-16"
     >
       <a href="./index.html">
         <div class="flex items-center">
@@ -21,9 +21,14 @@
           <h1 class="logo font-semibold text-3xl text-white">ovie Mania</h1>
         </div>
       </a>
-      <p title="watch list"><a class="text-yellow-500 text-3xl" href="./watchlist.html"><i class="fa-solid fa-bookmark"></i></a></p>
+      <p title="watch list">
+        <a class="text-yellow-500 text-3xl relative" href="./watchlist.html">
+          <i class="fa-solid fa-bookmark"></i>
+          <span id="watchlist-count" class="font-bold bg-white px-2 py-1 absolute -top-2 left-4 text-yellow-500 text-sm md:text-xl rounded-full"></span>
+        </a>
+      </p>
     </header>
-    <main class="container mx-auto pb-8 pt-8 px-4">
+    <main class="container mx-auto pb-8 pt-16 px-4">
     <div class="container flex flex-col items-center justify-center p-6">
       <h2
         id="movie-title"
@@ -33,9 +38,6 @@
         id="movie-details"
         class="rounded-lg flex flex-col items-center justify-center"
       ></div>
-      <div class="mt-8">
-        <a href="./index.html" class="text-blue-500">Go Home</a>
-      </div>
     </div>
   </main>
   </body>

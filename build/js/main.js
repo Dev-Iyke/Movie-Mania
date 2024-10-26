@@ -7,6 +7,13 @@ const heading = document.getElementById('heading')
 const searchInput = document.getElementById('search')
 const genreSelect = document.getElementById('genre-select')
 
+//Updating watch list count
+const watchList = JSON.parse(localStorage.getItem('watchList')) || [];
+let watchListCount = watchList.length;
+const watchCount = document.getElementById('watchlist-count')
+watchCount.textContent = watchListCount
+
+//Fetching all available genres
 let genres = []
 async function fetchGenres() {
   try {
@@ -23,6 +30,7 @@ async function fetchGenres() {
   }
 }
 
+//Applying a delaying to avoid too frequent fetching
 let debounceTimeout;
 function debounce(func, delay) {
   return (...args) => {
@@ -31,6 +39,7 @@ function debounce(func, delay) {
   };
 }
 
+//Fetching all trending movies to show up by default
 async function fetchTrendingMovies() {
   const totalPages = 3
   let allMovies = []
@@ -51,6 +60,8 @@ async function fetchTrendingMovies() {
   displayMovies(allMovies, moviesDiv)
 }
 
+//Fetching movies once there is a change in the search input field by title
+//Also checks if a genre is selected at that point
 searchInput.addEventListener('input', debounce(async (e) => {
   const query = e.target.value.trim()
   const genreId = genreSelect.value
@@ -86,7 +97,8 @@ searchInput.addEventListener('input', debounce(async (e) => {
   }
 }), 300)
 
-
+//Fetching movies once there is a change in the genre select field by genreId
+//Also checks if a search query is entered at that point
 genreSelect.addEventListener('change', async (e) => {
   const genreId = e.target.value;
   const query = searchInput.value.trim()
@@ -124,6 +136,7 @@ genreSelect.addEventListener('change', async (e) => {
   }
 })
 
+// function to fetch movies by genres alone using genre id
 async function fetchMoviesByGenre(genreId) {
   const totalPages = 3;
   let allMovies = [];
@@ -146,6 +159,7 @@ async function fetchMoviesByGenre(genreId) {
   displayMovies(allMovies, moviesDiv);
 }
 
+// function to fetch movies by search alone using title
 async function fetchMoviesBySearch(query) {
   const totalPages = 3;
   let allMovies = [];
@@ -162,10 +176,10 @@ async function fetchMoviesBySearch(query) {
       console.error('Error fetching movies with selected genre', error);
     }
   }
-
   displayMovies(allMovies, moviesDiv);
 }
 
+//utility function to display movies
 function displayMovies(movies, moviesContainer) {
   if (movies.length === 0) {
     moviesContainer.innerHTML = `<p class="text-center">No movies found.</p>`
@@ -176,7 +190,7 @@ function displayMovies(movies, moviesContainer) {
     <div class="bg-[#3A3F47] p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
       <a href="movie-details.html?id=${movie.id}">
         <img class="w-full h-[350px] object-cover rounded-md mb-4" src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
-        <h2 class="text-lg font-semibold mb-2">${movie.title}</h2>
+        <h2 class="text-lg font-semibold mb-2 line-clamp-1">${movie.title}</h2>
         <p class="text-sm text-gray-400 line-clamp-3">${movie.overview}</p>
         <h4 class="text-lg font-semibold mt-2">Rating: ${movie.vote_average}/10</h4>
       </a>

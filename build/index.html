@@ -13,7 +13,7 @@
   </head>
   <body class="bg-[#242A32] text-white">
     <header
-      class="w-full fixed flex justify-between items-center z-[3] scroll-mb-12 py-2 px-4 sm:px-8 md:px-12 lg:px-16"
+      class="w-full fixed flex justify-between items-center z-[3] scroll-mb-16 py-6 px-4 sm:px-8 md:px-12 lg:px-16"
     >
       <a href="./index.html">
         <div class="flex items-center">
@@ -21,9 +21,14 @@
           <h1 class="logo font-semibold text-3xl text-white">ovie Mania</h1>
         </div>
       </a>
-      <p title="watch list"><a class="text-yellow-500 text-3xl" href="./watchlist.html"><i class="fa-solid fa-bookmark"></i></a></p>
+      <p title="watch list">
+        <a class="text-yellow-500 text-3xl relative" href="./watchlist.html">
+          <i class="fa-solid fa-bookmark"></i>
+          <span id="watchlist-count" class="font-bold bg-white px-2 py-1 absolute -top-2 left-4 text-yellow-500 text-sm md:text-xl rounded-full"></span>
+        </a>
+      </p>
     </header>
-    <main class="container mx-auto pb-8 pt-12 px-4">
+    <main class="container mx-auto pb-8 pt-20 px-4">
       <!-- Search section -->
       <div
         id="search-cont"
@@ -57,14 +62,10 @@
         <h1 id="heading" class="text-3xl font-bold mb-6 text-center"></h1>
         <div
           id="movies-cont"
-          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-8 gap-x-6"
         ></div>
       </div>
-
-      <!-- Watchlist Link -->
-      <div class="text-center mt-8">
-        <a href="watchlist.html" class="text-blue-500">Go to Watchlist</a>
-      </div>
+      
     </main>
   </body>
 </html>

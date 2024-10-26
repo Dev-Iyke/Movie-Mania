@@ -1,8 +1,18 @@
+//Retrieving params to search for individual movie
 const urlParams = new URLSearchParams(window.location.search)
 const movieId = urlParams.get('id')
+console.log(movieId)
 
 const API_KEY = 'd42d9be9750345383b43a7c5e51d1e2a';
 const detailsUrl = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`;
+
+//Updating watch list count
+const watchList = JSON.parse(localStorage.getItem('watchList')) || [];
+let watchListCount = watchList.length;
+const watchCount = document.getElementById('watchlist-count')
+watchCount.textContent = watchListCount
+
+//Getting the movie details
 const fetchMovieDetails = async () => {
   try {
     const response = await fetch(detailsUrl)
@@ -13,9 +23,9 @@ const fetchMovieDetails = async () => {
     console.error('Error fetching details', error)
   }
 }
-
 fetchMovieDetails()
 
+//Function to display the movie details
 function displayMoviesDetails(movie) {
   const detailsContainer = document.getElementById('movie-details');
   const detailsTitle = document.getElementById('movie-title');
@@ -46,11 +56,14 @@ function displayMoviesDetails(movie) {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   `;
 
+  //Getting genres as a comma-separated list
   const genreList = movie.genres.map((genre) => genre.name)
   const stringedGenre = genreList.join(', ')
 
+  //dynamically rendering each movie title
   detailsTitle.innerHTML = movie.title;
 
+  //displaying movies with styles
   detailsContainer.innerHTML = `
     <div style="${backgroundStyle}" class="movie w-full rounded-md mb-4">
       <div style="${posterStyle}" ></div>
@@ -61,10 +74,15 @@ function displayMoviesDetails(movie) {
       <p class="text-sm"><strong>Rating:</strong> ${movie.vote_average}/10</p>
       <p class="text-sm"><strong>Release Date:</strong> ${new Date(movie.release_date).toLocaleDateString()}</p>
       <p class="text-sm"><strong>Genres:</strong> ${stringedGenre}</p>
-      <button class="bg-yellow-500 py-2 rounded-md cursor-pointer transition-transform transform scale-105 duration-300" id="addToWatchList">Add to watch list <span class="text-xl font-bold">&plus;</span></button>
+      <div class="flex gap-6 items-center">
+        <button class="w-full bg-yellow-500 py-2 rounded-md cursor-pointer transition-transform transform hover:scale-105 hover:bg-green-700 duration-300" id="addToWatchList">Add to watch list <span class="text-xl font-bold">&plus;</span></button>
+
+        <button class="w-full bg-red-700 py-2 rounded-md cursor-pointer transition-transform transform hover:scale-105 hover:bg-green-700 duration-300" ><i class="fa-solid fa-clock"></i> Watch Now <span class="text-xl font-bold"></span></button>
+      </div>
     </div>  
   `;
 
+  //Adding event listener to add movie to watch list when clicked on the button
   document.getElementById('addToWatchList').addEventListener('click', () => {
     const watchList = JSON.parse(localStorage.getItem('watchList')) || [];
     console.log(watchList)
@@ -72,13 +90,14 @@ function displayMoviesDetails(movie) {
     console.log(movieExists)
     if (!movieExists) {
       watchList.push(movie)
+      watchListCount += 1
+      watchCount.textContent = watchListCount
+      confirm(`${movie.title} added to watch list`)
       localStorage.setItem('watchList', JSON.stringify(watchList));
       console.log(watchList)
     }else {
+      confirm(`${movie.title} already in watch list`)
       console.log('Movie already exists in watch list')
     }
     })
 }
-
-// localStorage.removeItem('watchList')
-//     console.log(watchList)
