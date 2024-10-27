@@ -74,10 +74,10 @@ function displayMoviesDetails(movie) {
       <p class="text-sm"><strong>Rating:</strong> ${movie.vote_average}/10</p>
       <p class="text-sm"><strong>Release Date:</strong> ${new Date(movie.release_date).toLocaleDateString()}</p>
       <p class="text-sm"><strong>Genres:</strong> ${stringedGenre}</p>
-      <div class="flex gap-6 items-center">
+      <div class="flex flex-col sm:flex-row gap-6 items-center">
         <button class="w-full bg-yellow-500 py-2 rounded-md cursor-pointer transition-transform transform hover:scale-105 hover:bg-green-700 duration-300" id="addToWatchList">Add to watch list <span class="text-xl font-bold">&plus;</span></button>
 
-        <button class="w-full bg-red-700 py-2 rounded-md cursor-pointer transition-transform transform hover:scale-105 hover:bg-green-700 duration-300" ><i class="fa-solid fa-clock"></i> Watch Now <span class="text-xl font-bold"></span></button>
+        <button class="w-full bg-red-600 py-2 rounded-md cursor-pointer transition-transform transform hover:scale-105 hover:bg-red-800 duration-300" ><i class="fa-solid fa-clock"></i> Watch Now <span class="text-xl font-bold"></span></button>
       </div>
     </div>  
   `;

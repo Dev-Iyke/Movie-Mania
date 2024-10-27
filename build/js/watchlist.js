@@ -35,7 +35,7 @@ function displayMovies(movies, moviesContainer) {
     <div class="bg-[#3A3F47] p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
       <a href="movie-details.html?id=${movie.id}">
         <div class="">
-          <img class="w-full h-[150px] object-cover rounded-md mb-4" src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
+          <img class="w-full h-[200px] object-cover rounded-md mb-4" src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
         </div>
         <div>
           <h2 class="text-lg font-semibold mb-2 line-clamp-1">${movie.title}</h2>
